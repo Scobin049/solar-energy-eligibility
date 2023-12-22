@@ -21,7 +21,7 @@ export const eligibilityCriteria = (payload: InputCriteria): OutputCriteria => {
   return { elegivel: true, economiaAnualDeCO2: calculateAnnualSavingsProjection(averageConsumption) }
 }
 
-const minimumCustomerConsumptionValidation = (averageConsumption: number, tipoDeConexao: string): boolean => {
+const minimumCustomerConsumptionValidation = (averageConsumption: number, tipoDeConexao: ConnectionTypeEnum): boolean => {
   switch(tipoDeConexao){
     case ConnectionTypeEnum.monoPhase:
       return averageConsumption >= MIN_MONOPHASE;
@@ -29,8 +29,6 @@ const minimumCustomerConsumptionValidation = (averageConsumption: number, tipoDe
       return averageConsumption >= MIN_BIPHASIC;
     case ConnectionTypeEnum.threePhase:
       return averageConsumption >= MIN_THREEPHASIC;
-    default:
-      return false;
   }
 }
 
