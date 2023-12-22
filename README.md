@@ -1,5 +1,5 @@
-# Lemon - Solar energy Eligibility
-Projeto para teste técnico para backend
+# Solar energy Eligibility
+Calculo de elegibilidade para seleção de clientes para energia solar
 
 ## Índice
 - [Requisitos](#requisitos)
