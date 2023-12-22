@@ -1,5 +1,5 @@
 export enum ConnectionTypeEnum {
-  singlePhase = 'monofasico',
+  monoPhase = 'monofasico',
   biphasic = 'bifasico',
   threePhase = 'trifasico'
 }

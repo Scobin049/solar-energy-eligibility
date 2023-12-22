@@ -19,7 +19,7 @@ app.post('/',async (req, res) => {
     const payload: InputCriteria = req.body;
     const inputCriteria= plainToInstance(InputCriteriaDTO, payload);
     
-    const errors = await validate(inputCriteria, { whitelist: true });   
+    const errors = await validate(inputCriteria, { whitelist: true });
     if(!!errors.length) throw errors.map(item => ({ property: item.property, constraints: item.constraints }));
 
     const aux = eligibilityCriteria(inputCriteria);
