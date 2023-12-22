@@ -1,4 +1,4 @@
-# Solar energy Eligibility
+# Solar energy - Eligibility
 Calculo de elegibilidade para seleção de clientes para energia solar
 
 ## Índice
