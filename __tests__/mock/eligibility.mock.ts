@@ -1,11 +1,12 @@
-import { ConnectionTypeEnum, ConsumptionClassesEnum, TariffModalitiesEnum } from "../../src/enums/service-criteria.enum"
+import { CommercialSubClassEnum, ConnectionTypeEnum, ConsumptionClassesEnum, TariffModalitiesEnum } from "../../src/enums/service-criteria.enum"
 import { InputCriteria } from "../../src/interfaces/input-criteria.interface"
 import { OutputCriteria } from "../../src/interfaces/output-criteria.interface"
 
 export const inputEligibility: InputCriteria = {
-  "numeroDoDocumento": "14041737706",
+  "numeroDoDocumento": "90256047065",
   "tipoDeConexao": ConnectionTypeEnum.biphasic,
   "classeDeConsumo": ConsumptionClassesEnum.commercial,
+  "subclasseDeConsumo": CommercialSubClassEnum.commercial,
   "modalidadeTarifaria": TariffModalitiesEnum.conventional,
   "historicoDeConsumo": [
     3878,

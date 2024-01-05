@@ -1,3 +1,4 @@
+import { consumptionClassesError, consumptionSubClassesError, documentInvalidError } from "../src/constants";
 import { ConnectionTypeEnum, ConsumptionClassesEnum, TariffModalitiesEnum } from "../src/enums/service-criteria.enum";
 import { OutputCriteria } from "../src/interfaces/output-criteria.interface";
 import { eligibilityCriteria } from "../src/service";
@@ -6,6 +7,11 @@ import { inputEligibility, outputEligibility } from "./mock/eligibility.mock";
 describe("Eligibility - Connection type variations", () => {
   test("Should be return data eligibility with biphasic", () => {
     const response = eligibilityCriteria(inputEligibility)
+    expect(response).toEqual(outputEligibility)
+  });
+
+  test("Should be return data eligibility with CNPJ", () => {
+    const response = eligibilityCriteria({...inputEligibility, numeroDoDocumento: "69071147000179"})
     expect(response).toEqual(outputEligibility)
   });
 
@@ -24,7 +30,8 @@ describe("Eligibility - Variations of reasons for ineligibility", () => {
     const outputIneligible:OutputCriteria = {
       elegivel: false,
       razoesDeInelegibilidade: [
-        "Classe de consumo não aceita",
+        consumptionClassesError,
+        consumptionSubClassesError
       ]
     }
     expect(() => eligibilityCriteria(
@@ -41,6 +48,18 @@ describe("Eligibility - Variations of reasons for ineligibility", () => {
     }
     expect(() => eligibilityCriteria(
       { ...inputEligibility, modalidadeTarifaria: TariffModalitiesEnum.green }
+    )).toThrow(expect.objectContaining(outputIneligible))
+  });
+
+  test("Should return 'Invalid document' error", () => {
+    const outputIneligible:OutputCriteria = {
+      elegivel: false,
+      razoesDeInelegibilidade: [
+        documentInvalidError
+      ]
+    }
+    expect(() => eligibilityCriteria(
+      { ...inputEligibility, numeroDoDocumento: "69071147000178" }
     )).toThrow(expect.objectContaining(outputIneligible))
   });
 
