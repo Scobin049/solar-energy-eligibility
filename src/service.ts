@@ -71,10 +71,9 @@ const validateRules = (payload: InputCriteria, averageConsumption:number): void 
     ],
   }
   const eligibleSubClasses = subClassValition[payload.classeDeConsumo]
-  const eligibleTariffModality = [TariffModalitiesEnum.white, TariffModalitiesEnum.conventional];  
   if(!eligibleSubClasses || !eligibleSubClasses.includes(payload.subclasseDeConsumo)) errors.push(consumptionSubClassesError);
-  
-  
+    
+  const eligibleTariffModality = [TariffModalitiesEnum.white, TariffModalitiesEnum.conventional];  
   if(!eligibleTariffModality.includes(payload.modalidadeTarifaria)) errors.push(tariffModalityError);
   
   const isMinimumCustomerConsumption = minimumCustomerConsumptionValidation(averageConsumption, payload.tipoDeConexao);
