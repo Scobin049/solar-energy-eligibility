@@ -4,6 +4,7 @@ export interface InputCriteria {
   numeroDoDocumento: string;
   tipoDeConexao: ConnectionTypeEnum;
   classeDeConsumo: ConsumptionClassesEnum;
+  subclasseDeConsumo: string;
   modalidadeTarifaria: TariffModalitiesEnum;
   historicoDeConsumo: number[];
 }
