@@ -10,4 +10,8 @@ export const MIN_THREEPHASIC = 750;
 
 export const tariffModalityError =  "Modalidade tarifária não aceita";
 export const consumptionClassesError =  "Classe de consumo não aceita";
+export const consumptionSubClassesError =  "Subclasse de consumo não aceita";
 export const minimumCustomerConsumptionError = "Consumo muito baixo para tipo de conexão";
+export const documentInvalidError = "Documento informado não é válido";
+
+export const CPF_LENGTH = 11
